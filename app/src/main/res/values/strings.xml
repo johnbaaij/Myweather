@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My weather</string>
+    <string name="app_name">My Weather</string>
 
     <string name="title_weer">Het weer</string>
     <string name="title_voorspelling">Voorspelling</string>
