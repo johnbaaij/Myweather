@@ -12,6 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHandler extends SQLiteOpenHelper {
 
+    public static SQLiteDatabase db;
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "my-weather.db";
@@ -81,6 +82,10 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
         c.close();
         return dbString;
+    }
+
+    public void insert(String table, String nullColumnHack, ContentValues values){
+        db.insert(table, nullColumnHack, values);
     }
 
 
