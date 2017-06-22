@@ -1,5 +1,7 @@
 package nl.johnbaaij.myweather;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
@@ -25,6 +27,9 @@ import org.json.JSONObject;
 import java.lang.reflect.Type;
 import java.util.List;
 
+import nl.johnbaaij.myweather.fragments.Locaties;
+import nl.johnbaaij.myweather.fragments.Voorspelling;
+import nl.johnbaaij.myweather.fragments.Weer;
 import nl.johnbaaij.myweather.models.CourseModel;
 import nl.johnbaaij.myweather.models.Weather;
 
@@ -43,13 +48,20 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_weer:
+                    changeToWeerFragment();
+                    //mTextMessage.setText(R.string.menu_home);
                     return true;
                 case R.id.navigation_voorspelling:
+                    changeToVoorspellingFragment();
+                    //mTextMessage.setText(R.string.menu_afspraken);
                     return true;
                 case R.id.navigation_locaties:
+                    changeToLocationsFragment();
+                    //mTextMessage.setText(R.string.menu_faq);
                     return true;
             }
             return false;
+
         }
 
     };
@@ -65,6 +77,53 @@ public class MainActivity extends AppCompatActivity {
         requestSubjects();
     }
 
+    public void changeToWeerFragment(){
+        // Create new fragment and transaction
+        Fragment newFragment = new Weer();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack
+        transaction.replace(R.id.fragment, newFragment);
+        transaction.addToBackStack(null);
+
+        // Commit the transaction
+        transaction.commit();
+    }
+
+    public void changeToVoorspellingFragment(){
+
+        // Create new fragment and transaction
+        Fragment newFragment = new Voorspelling();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack
+        transaction.replace(R.id.fragment, newFragment);
+        transaction.addToBackStack(null);
+
+        // Commit the transaction
+        transaction.commit();
+
+    }
+
+    public void changeToLocationsFragment(){
+
+
+        // Create new fragment and transaction
+        Fragment newFragment = new Locaties();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack
+        transaction.replace(R.id.fragment, newFragment);
+        transaction.addToBackStack(null);
+
+        // Commit the transaction
+        transaction.commit();
+
+
+    }
 
     private void requestSubjects(){
         Type type = new TypeToken<List<CourseModel>>(){}.getType();
@@ -107,19 +166,5 @@ public class MainActivity extends AppCompatActivity {
         //DatabaseUtils.dumpCursor(rs);
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

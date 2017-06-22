@@ -4,4 +4,35 @@
     <string name="title_weer">Het weer</string>
     <string name="title_voorspelling">Voorspelling</string>
     <string name="title_locaties">Locaties</string>
+
+
+    <string-array name="locations">
+        <!-- 1 --><item >Amsterdam</item>
+        <!-- 2 --><item >Leiden</item>
+        <!-- 3 --><item >Den Haag</item>
+        <!-- 4 --><item >Rotterdam</item>
+        <!-- 5 --><item >Eindhoven</item>
+
+        <!-- 6 --><item >a</item>
+        <!-- 7 --><item >b</item>
+        <!-- 8 --><item >c</item>
+        <!-- 9 --><item >d</item>
+        <!-- 10 --><item >e</item>
+
+    </string-array>
+
+    <string-array name="subtext">
+        <!-- 1 --><item >Bekijk het weer van Amsterdam</item>
+        <!-- 2 --><item >Bekijk het weer van Leiden</item>
+        <!-- 3 --><item >Bekijk het weer van Den Haag</item>
+        <!-- 4 --><item >Bekijk het weer van Rotterdam</item>
+        <!-- 5 --><item >Bekijk het weer van Eindhoven</item>
+
+        <!-- 6 --><item >a</item>
+        <!-- 7 --><item >b</item>
+        <!-- 8 --><item >c</item>
+        <!-- 9 --><item >d</item>
+        <!-- 10 --><item >e</item>
+
+    </string-array>
 </resources>
