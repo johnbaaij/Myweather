@@ -9,14 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.os.Handler;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.List;
-
 import nl.johnbaaij.myweather.ApiInterface;
-import nl.johnbaaij.myweather.DBHandler;
 import nl.johnbaaij.myweather.MainActivity;
 import nl.johnbaaij.myweather.R;
 import nl.johnbaaij.myweather.SettingsActivity;
@@ -36,16 +32,6 @@ public class Weer extends Fragment {
 
     String city;
 
-
-    DBHandler dbHandler;
-
-
-    public Weer() {
-        this.dbHandler = new DBHandler(getActivity(), null, null, 1);
-
-    }
-
-    //JSONObject json;
     private static final String TAG = MainActivity.class.getSimpleName();
     public static final String BASE_URL = "http://api.openweathermap.org/data/2.5/";
     TextView textTemp;
@@ -54,15 +40,10 @@ public class Weer extends Fragment {
     TextView textMaxTemp;
     FloatingActionButton fab;
 
-
-
-
     //unicode karakter voor een graden symbool
     final String DEGREE  = "\u00b0";
 
-
     Retrofit retrofit;
-
 
     //onze api key. Deze is verborgen om misbruik te voorkomen.
     private final static String API_KEY = "0de2125cb9a3e3019c8972d6440d1056";
@@ -77,9 +58,6 @@ public class Weer extends Fragment {
         Bundle bundle = this.getArguments();
         if (bundle != null) {
             this.city = bundle.getString("city");
-            //this.answer = bundle.getString("answer");
-            //Toast.makeText(getActivity(), answer, Toast.LENGTH_SHORT).show();
-
 
         }
 
@@ -103,10 +81,6 @@ public class Weer extends Fragment {
         });
 
 
-
-
-
-
         textStad = (TextView)view.findViewById(R.id.textStad);
         Retrofit.Builder builder = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit = builder.build();
@@ -122,10 +96,6 @@ public class Weer extends Fragment {
 
                 Main main = response.body().getMain();
 
-
-
-
-
                 // De api geeft het weer x10 aan. Als het bijvoorbeeld 15 graden is dan geeft de api 150 aan. Daarom verkleinen we het eerst
                 // en dan wordt het afgerond tot 2 cijfers achter de comma.
 
@@ -134,9 +104,9 @@ public class Weer extends Fragment {
                 double tempMax = Math.round((main.getTemp_max() * 10 / 100)  * 100.0) / 100.0;
 
 
-                textTemp.setText(String.valueOf(temp) + DEGREE);
-                textMinTemp.setText(String.valueOf(tempMin) + DEGREE);
-                textMaxTemp.setText(String.valueOf(tempMax) + DEGREE);
+                textTemp.setText(getResources().getString(R.string.temp) + " " +String.valueOf(temp) + DEGREE);
+                textMinTemp.setText(getResources().getString(R.string.min_temp) + " " +String.valueOf(tempMin) + DEGREE);
+                textMaxTemp.setText(getResources().getString(R.string.max_temp) + " " + String.valueOf(tempMax) + DEGREE);
                 textStad.setText(response.body().getName());
 
             }
@@ -150,28 +120,7 @@ public class Weer extends Fragment {
             }
         });
 
-
-
-        //client.getWeather("amsterdam");
-
-
-
-
-
-
-
         return view;
     }
-
-
-
-
-
-
-
-
-
-
-
 
 }

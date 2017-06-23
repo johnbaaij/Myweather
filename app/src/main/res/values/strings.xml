@@ -14,6 +14,11 @@
     \nJohn Baaij
     \nKim Wijfje</string>
 
+    <string name="temp">Huidige temperatuur: </string>
+    <string name="min_temp">Minimale temperatuur: </string>
+    <string name="max_temp">Maximale temperatuur: </string>
+
+
     <!-- The Locations for the app -->
     <string-array name="locations">
         <!-- 1 -->

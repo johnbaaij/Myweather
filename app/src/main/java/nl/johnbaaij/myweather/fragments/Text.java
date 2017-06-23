@@ -2,7 +2,6 @@ package nl.johnbaaij.myweather.fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,10 +38,6 @@ public class Text extends Fragment {
     public static final String BASE_URL = "http://api.openweathermap.org/data/2.5/";
     final String DEGREE  = "\u00b0";
 
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -63,12 +58,6 @@ public class Text extends Fragment {
         temp = (TextView)view.findViewById(R.id.temp);
         minTemp = (TextView)view.findViewById(R.id.minTemp);
         maxTemp = (TextView)view.findViewById(R.id.maxTemp);
-
-
-
-
-
-
 
         Retrofit.Builder builder = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit = builder.build();
@@ -92,11 +81,10 @@ public class Text extends Fragment {
                 double tempMinValue = Math.round((main.getTemp_min() * 10 / 100)  * 100.0) / 100.0;
                 double tempMaxValue = Math.round((main.getTemp_max() * 10 / 100)  * 100.0) / 100.0;
 
-                temp.setText(String.valueOf(tempValue)+DEGREE);
-                minTemp.setText(String.valueOf(tempMinValue) + DEGREE);
-                maxTemp.setText(String.valueOf(tempMaxValue) + DEGREE);
 
-
+                temp.setText(getResources().getString(R.string.temp) + " " +String.valueOf(tempValue) + DEGREE);
+                minTemp.setText(getResources().getString(R.string.min_temp) + " " +String.valueOf(tempMinValue) + DEGREE);
+                maxTemp.setText(getResources().getString(R.string.max_temp) + " " + String.valueOf(tempMaxValue) + DEGREE);
 
 
             }

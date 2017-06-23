@@ -1,7 +1,6 @@
 package nl.johnbaaij.myweather.models;
 
 import com.google.gson.annotations.SerializedName;
-import java.util.List;
 
 /**
  * Created by John on 22/06/2017.

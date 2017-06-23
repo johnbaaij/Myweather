@@ -16,11 +16,6 @@ import nl.johnbaaij.myweather.fragments.Weer;
 
 public class MainActivity extends AppCompatActivity {
 
-
-
-
-
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -39,9 +34,6 @@ public class MainActivity extends AppCompatActivity {
             }
             return false;
         }
-
-
-
 
     };
 
@@ -63,27 +55,12 @@ public class MainActivity extends AppCompatActivity {
 
         changeToWeerFragment();
 
-
-
-
-
-
-
-
-
-        //mTextMessage = (TextView) findViewById(R.id.message);
-        //requestSubjects();
-
-
-
     }
 
 
 
     public void changeToWeerFragment(){
         // Create new fragment and transaction
-
-
 
         Bundle bundle = new Bundle();
         bundle.putString("city", PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("city", null));
