@@ -34,7 +34,7 @@ public class Text extends Fragment {
     String locations;
     String subtext;
 
-    private final static String API_KEY = "0de2125cb9a3e3019c8972d6440d1056";
+    private final static String API_KEY = "";
     public static final String BASE_URL = "http://api.openweathermap.org/data/2.5/";
     final String DEGREE  = "\u00b0";
 
