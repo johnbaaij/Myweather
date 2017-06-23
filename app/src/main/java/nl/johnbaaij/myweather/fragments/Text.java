@@ -74,12 +74,14 @@ public class Text extends Fragment {
                 Main main = response.body().getMain();
 
 
-                // De api geeft het weer x10 aan. Als het bijvoorbeeld 15 graden is dan geeft de api 150 aan. Daarom verkleinen we het eerst
-                // en dan wordt het afgerond tot 2 cijfers achter de comma.
 
-                double tempValue = Math.round((main.getTemp() * 10 / 100)  * 100.0) / 100.0;
-                double tempMinValue = Math.round((main.getTemp_min() * 10 / 100)  * 100.0) / 100.0;
-                double tempMaxValue = Math.round((main.getTemp_max() * 10 / 100)  * 100.0) / 100.0;
+                //de api geeft de waardes terug in kelvin. Daarom moet er -273 gedaan worden om het naar celcius te krijgen.
+                //We ronden het daarna af met 2 cijfers achter de comma.
+
+
+                double tempValue = Math.round((main.getTemp() -273)  * 100.0) / 100.0;
+                double tempMinValue = Math.round((main.getTemp_min() -273)  * 100.0) / 100.0;
+                double tempMaxValue = Math.round((main.getTemp_max() -273)  * 100.0) / 100.0;
 
 
                 temp.setText(getResources().getString(R.string.temp) + " " +String.valueOf(tempValue) + DEGREE);
