@@ -6,24 +6,49 @@ package nl.johnbaaij.myweather.models;
 
 public class CourseModel {
 
-    private String vakCode;
-    private int aantalECTS;
-    private int cijfer;
-    private int periode;
+    public String name;
+    public int ects;
+    public int grade;
+    public int period;
 
-    public CourseModel(String vakCode, int aantalECTS, int cijfer, int periode) {
-        this.vakCode = vakCode;
-        this.aantalECTS = aantalECTS;
-        this.cijfer = cijfer;
-        this.periode = periode;
+    public CourseModel(String name, int ects, int grade, int period) {
+        this.name = name;
+        this.ects = ects;
+        this.grade = grade;
+        this.period = period;
     }
 
-    public String getVakCode() {
-        return vakCode;
+    public String getName() {
+        return name;
     }
 
-    public String getAantalECTS() {
-        return String.valueOf(aantalECTS);
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getEcts() {
+        return ects;
+    }
+
+    public void setEcts(int ects) {
+        this.ects = ects;
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+
+    public int getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(int period) {
+        this.period = period;
     }
 }
 // ADD GETTERS AND SETTERS - ONLY IF NEEDED !! }
+

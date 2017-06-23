@@ -6,13 +6,17 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import nl.johnbaaij.myweather.models.CourseModel;
+
 /**
  * Created by John on 16/06/2017.
  */
 
 public class DBHandler extends SQLiteOpenHelper {
 
-    public static SQLiteDatabase db;
+    //public static SQLiteDatabase db;
+    public static SQLiteDatabase mSQLDB;
+
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "my-weather.db";
@@ -84,9 +88,24 @@ public class DBHandler extends SQLiteOpenHelper {
         return dbString;
     }
 
-    public void insert(String table, String nullColumnHack, ContentValues values){
-        db.insert(table, nullColumnHack, values);
+    public void addUser(CourseModel courseModel) {
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NAME, courseModel.getName());
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLE_USERS, null, values);
+        db.close();
+
     }
+
+
+    public static void insert(String table, String nullColumnHack, ContentValues values){
+        mSQLDB.insert(table, nullColumnHack, values);
+    }
+
+    public static Cursor query(String table, String[] columns, String selection, String[] selectArgs, String groupBy, String having, String orderBy){
+        return mSQLDB.query(table, columns, selection, selectArgs, groupBy, having, orderBy);
+    }
+
 
 
 
