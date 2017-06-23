@@ -42,7 +42,10 @@ public class CustomAdapter extends ArrayAdapter<String> {
 
 
         textView.setText(singleQuestion);
-        subText.setText(subtext[position]);
+
+        if (subtext != null){
+            subText.setText(subtext[position]);
+        }
 
         return view;
     }

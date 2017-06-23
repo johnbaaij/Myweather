@@ -17,4 +17,11 @@ public class Parser {
     public Main getMain() {
         return main;
     }
+
+    @SerializedName("name")
+    private String name;
+
+    public String getName() {
+        return name;
+    }
 }

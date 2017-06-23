@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import nl.johnbaaij.myweather.models.CourseModel;
+import nl.johnbaaij.myweather.models.Main;
 
 /**
  * Created by John on 16/06/2017.
@@ -23,7 +23,10 @@ public class DBHandler extends SQLiteOpenHelper {
     public static final String TABLE_USERS = "users";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_NAME = "name";
-    public static final String COLUMN_GENDER = "gender";
+    public static final String COLUMN_TEMP = "temp";
+    public static final String COLUMN_TEMP_MIN = "temp";
+    public static final String COLUMN_TEMP_MAX = "temp";
+
 
 
     public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -38,7 +41,10 @@ public class DBHandler extends SQLiteOpenHelper {
 
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,  " +
                 COLUMN_NAME + " TEXT, " +
-                COLUMN_GENDER + " TEXT " +
+                COLUMN_TEMP + " DOUBLE " +
+                COLUMN_TEMP_MIN + " DOUBLE " +
+                COLUMN_TEMP_MAX + " DOUBLE " +
+
                 ");";
 
         db.execSQL(query);
@@ -88,9 +94,9 @@ public class DBHandler extends SQLiteOpenHelper {
         return dbString;
     }
 
-    public void addUser(CourseModel courseModel) {
+    public void addToCache(Main Main) {
         ContentValues values = new ContentValues();
-        values.put(COLUMN_NAME, courseModel.getName());
+        //values.put(COLUMN_NAME, courseModel.getName());
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE_USERS, null, values);
         db.close();
@@ -98,13 +104,8 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
 
-    public static void insert(String table, String nullColumnHack, ContentValues values){
-        mSQLDB.insert(table, nullColumnHack, values);
-    }
 
-    public static Cursor query(String table, String[] columns, String selection, String[] selectArgs, String groupBy, String having, String orderBy){
-        return mSQLDB.query(table, columns, selection, selectArgs, groupBy, having, orderBy);
-    }
+
 
 
 

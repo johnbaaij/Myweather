@@ -48,7 +48,7 @@ public class Locaties extends Fragment {
                 //Toast.makeText(activity, question, Toast.LENGTH_LONG).show();
 
                 Bundle bundle = new Bundle();
-                bundle.putString("city", location);
+                bundle.putString("locations", location);
                 bundle.putString("subText", subtext);
 
 

@@ -7,32 +7,52 @@
 
 
     <string-array name="locations">
-        <!-- 1 --><item >Amsterdam</item>
-        <!-- 2 --><item >Delft</item>
-        <!-- 3 --><item >Den Haag</item>
-        <!-- 4 --><item >Eindhoven</item>
-        <!-- 5 --><item >Groningen</item>
+        <!-- 1 -->
+        <item>Amsterdam</item>
+        <!-- 2 -->
+        <item>Delft</item>
+        <!-- 3 -->
+        <item>Den Haag</item>
+        <!-- 4 -->
+        <item>Eindhoven</item>
+        <!-- 5 -->
+        <item>Groningen</item>
 
-        <!-- 6 --><item >Maastricht</item>
-        <!-- 7 --><item >Leeuwarden</item>
-        <!-- 8 --><item >Leiden</item>
-        <!-- 9 --><item >Rotterdam</item>
-        <!-- 10 --><item >Utrecht</item>
+        <!-- 6 -->
+        <item>Maastricht</item>
+        <!-- 7 -->
+        <item>Leeuwarden</item>
+        <!-- 8 -->
+        <item>Leiden</item>
+        <!-- 9 -->
+        <item>Rotterdam</item>
+        <!-- 10 -->
+        <item>Utrecht</item>
 
     </string-array>
 
     <string-array name="subtext">
-        <!-- 1 --><item >Bekijk het weer van Amsterdam</item>
-        <!-- 2 --><item >Bekijk het weer van Delft</item>
-        <!-- 3 --><item >Bekijk het weer van Den Haag</item>
-        <!-- 4 --><item >Bekijk het weer van Eindhoven</item>
-        <!-- 5 --><item >Bekijk het weer van Groningen</item>
+        <!-- 1 -->
+        <item>Bekijk het weer van Amsterdam</item>
+        <!-- 2 -->
+        <item>Bekijk het weer van Delft</item>
+        <!-- 3 -->
+        <item>Bekijk het weer van Den Haag</item>
+        <!-- 4 -->
+        <item>Bekijk het weer van Eindhoven</item>
+        <!-- 5 -->
+        <item>Bekijk het weer van Groningen</item>
 
-        <!-- 6 --><item >Bekijk het weer van Maastricht</item>
-        <!-- 7 --><item >Bekijk het weer van Leeuwarden</item>
-        <!-- 8 --><item >Bekijk het weer van Leiden</item>
-        <!-- 9 --><item >Bekijk het weer van Rotterdam</item>
-        <!-- 10 --><item >Bekijk het weer van Utrecht</item>
+        <!-- 6 -->
+        <item>Bekijk het weer van Maastricht</item>
+        <!-- 7 -->
+        <item>Bekijk het weer van Leeuwarden</item>
+        <!-- 8 -->
+        <item>Bekijk het weer van Leiden</item>
+        <!-- 9 -->
+        <item>Bekijk het weer van Rotterdam</item>
+        <!-- 10 -->
+        <item>Bekijk het weer van Utrecht</item>
 
     </string-array>
 </resources>

@@ -3,7 +3,6 @@ package nl.johnbaaij.myweather;
 import nl.johnbaaij.myweather.models.Parser;
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
@@ -12,6 +11,18 @@ import retrofit2.http.Query;
 
 public interface ApiInterface {
 
-    @GET("weather?q=amsterdam&APPID=0de2125cb9a3e3019c8972d6440d1056")
-    Call<Parser> getWeather(@Query("city") String city);
+    @GET("weather")
+    Call<Parser> getWeather(
+            @Query("q") String city,
+            @Query("appid") String appid
+            );
+
 }
+
+
+
+
+//api.openweathermap.org/data/2.5/forecast/daily?id=524901
+
+
+
