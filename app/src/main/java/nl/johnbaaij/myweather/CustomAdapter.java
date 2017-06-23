@@ -35,11 +35,9 @@ public class CustomAdapter extends ArrayAdapter<String> {
 
         String singleQuestion = getItem(position);
 
-
+        // parse the content of the array to the Textview in the .xml files
         textView =(TextView) view.findViewById(R.id.TextCity);
         subText =(TextView) view.findViewById(R.id.subtext);
-
-
 
         textView.setText(singleQuestion);
 

@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_weer:
                     changeToWeerFragment();
                     return true;
-                case R.id.navigation_voorspelling:
+                case R.id.navigation_Info:
                     changeToOverFragment();
                     return true;
                 case R.id.navigation_locaties:

@@ -1,11 +1,20 @@
 <resources>
     <string name="app_name">My Weather</string>
 
+    <!-- The items of the bottom navigation -->
     <string name="title_weer">Het weer</string>
-    <string name="title_voorspelling">Voorspelling</string>
     <string name="title_locaties">Locaties</string>
+    <string name="title_info">Info</string>
 
+    <string name="title_over">Welkom op de My Weather App</string>
+    <string name="content_over">Bekijk het weer van alle steden door simpel te wisselen tussen weer en locaties, en zet je favoriete stad op je home scherm met de button.
+    /nZie in een opslag wat de temperaturen zijn en ga voorbereid op pad.
+    \n\nDit is een project van de Hogeschool Leiden voor het vak IMTPMD
+    \nGerealiseerd door:
+    \nJohn Baaij
+    \nKim Wijfje</string>
 
+    <!-- The Locations for the app -->
     <string-array name="locations">
         <!-- 1 -->
         <item>Amsterdam</item>
@@ -31,6 +40,7 @@
 
     </string-array>
 
+    <!-- The subtext of the Locations -->
     <string-array name="subtext">
         <!-- 1 -->
         <item>Bekijk het weer van Amsterdam</item>

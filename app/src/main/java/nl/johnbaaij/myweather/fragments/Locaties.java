@@ -33,6 +33,7 @@ public class Locaties extends Fragment {
 
         View view = inflater.inflate(R.layout.list_layout, container, false);
 
+        // get the locations and subtext out of the array's
         locations = getResources().getStringArray(R.array.locations);
         subText = getResources().getStringArray(R.array.subtext);
         activity = getActivity();
