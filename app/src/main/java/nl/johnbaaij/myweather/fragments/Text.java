@@ -28,8 +28,19 @@ public class Text extends Fragment {
     TextView scrollable;
     TextView title;
 
+    TextView temp;
+    TextView minTemp;
+    TextView maxTemp;
+
     String locations;
     String subtext;
+
+    private final static String API_KEY = "0de2125cb9a3e3019c8972d6440d1056";
+    public static final String BASE_URL = "http://api.openweathermap.org/data/2.5/";
+    final String DEGREE  = "\u00b0";
+
+
+
 
 
     @Override
@@ -49,6 +60,10 @@ public class Text extends Fragment {
         View view = inflater.inflate(R.layout.text_clicked_layout, container, false);
 
 
+        temp = (TextView)view.findViewById(R.id.temp);
+        minTemp = (TextView)view.findViewById(R.id.minTemp);
+        maxTemp = (TextView)view.findViewById(R.id.maxTemp);
+
 
 
 
@@ -60,7 +75,7 @@ public class Text extends Fragment {
 
         ApiInterface client = retrofit.create(ApiInterface.class);
 
-        Call<Parser> call = client.getWeather(city, API_KEY);
+        Call<Parser> call = client.getWeather(locations, API_KEY);
 
         call.enqueue(new Callback<Parser>() {
             @Override
@@ -70,15 +85,17 @@ public class Text extends Fragment {
                 Main main = response.body().getMain();
 
 
-
-
-
                 // De api geeft het weer x10 aan. Als het bijvoorbeeld 15 graden is dan geeft de api 150 aan. Daarom verkleinen we het eerst
                 // en dan wordt het afgerond tot 2 cijfers achter de comma.
 
-                double temp = Math.round((main.getTemp() * 10 / 100)  * 100.0) / 100.0;
-                double tempMin = Math.round((main.getTemp_min() * 10 / 100)  * 100.0) / 100.0;
-                double tempMax = Math.round((main.getTemp_max() * 10 / 100)  * 100.0) / 100.0;
+                double tempValue = Math.round((main.getTemp() * 10 / 100)  * 100.0) / 100.0;
+                double tempMinValue = Math.round((main.getTemp_min() * 10 / 100)  * 100.0) / 100.0;
+                double tempMaxValue = Math.round((main.getTemp_max() * 10 / 100)  * 100.0) / 100.0;
+
+                temp.setText(String.valueOf(tempValue)+DEGREE);
+                minTemp.setText(String.valueOf(tempMinValue) + DEGREE);
+                maxTemp.setText(String.valueOf(tempMaxValue) + DEGREE);
+
 
 
 
@@ -94,14 +111,11 @@ public class Text extends Fragment {
         });
 
 
-        scrollable = (TextView) view.findViewById(R.id.subtext);
-        scrollable.setText(subtext);
 
         title = (TextView) view.findViewById(R.id.TextCity);
         title.setText(locations);
 
         //Enabling scrolling on TextView.
-        scrollable.setMovementMethod(new ScrollingMovementMethod());
         return view;
     }
 }

@@ -26,6 +26,7 @@ public class Locaties extends Fragment {
     ListAdapter adapter;
     ListView locList;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

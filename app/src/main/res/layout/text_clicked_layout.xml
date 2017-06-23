@@ -12,9 +12,21 @@
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/subtext"
+        android:id="@+id/temp"
         android:layout_width="match_parent"
-        android:layout_height="62dp"
-        android:layout_weight="0.86"
-        android:text="Subtext" />
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/minTemp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/maxTemp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
 </LinearLayout>
