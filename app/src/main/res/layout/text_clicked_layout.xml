@@ -10,27 +10,27 @@
         android:layout_width="match_parent"
         android:layout_height="62dp"
         android:text="Title"
-        android:textSize="30sp" />
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/temp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="TextView"
-        android:textSize="24sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/minTemp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="TextView"
-        android:textSize="24sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/maxTemp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="TextView"
-        android:textSize="24sp" />
+        android:textSize="18sp" />
 
 </LinearLayout>
