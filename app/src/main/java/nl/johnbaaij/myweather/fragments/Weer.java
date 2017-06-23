@@ -46,7 +46,7 @@ public class Weer extends Fragment {
     Retrofit retrofit;
 
     //onze api key. Deze is verborgen om misbruik te voorkomen.
-    private final static String API_KEY = "0de2125cb9a3e3019c8972d6440d1056";
+    private final static String API_KEY = "";
 
 
 
