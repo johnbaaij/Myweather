@@ -23,7 +23,7 @@ android {
 repositories {
     // mavenCentral()
     maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-    // maven { url "https://jitpack.io"}
+    maven { url "https://jitpack.io"}
 }
 
 dependencies {
@@ -43,5 +43,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.6.2'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.github.PhilJay:MPAndroidChart:v2.1.5'
+
     testCompile 'junit:junit:4.12'
 }

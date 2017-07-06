@@ -46,7 +46,6 @@ public class Locaties extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
                 String location = String.valueOf(parent.getItemAtPosition(position));
                 String subtext = subText[position];
-
                 //Toast.makeText(activity, question, Toast.LENGTH_LONG).show();
 
                 Bundle bundle = new Bundle();
