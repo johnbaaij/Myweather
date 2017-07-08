@@ -21,17 +21,7 @@ import java.util.ArrayList;
 
 import nl.johnbaaij.myweather.ApiInterface;
 import nl.johnbaaij.myweather.R;
-import nl.johnbaaij.myweather.models.Main;
-import nl.johnbaaij.myweather.models.Parser;
-import nl.johnbaaij.myweather.models.TestModel;
-import nl.johnbaaij.myweather.models.forecast.Forecast;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
-import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by John on 05/07/2017.
@@ -41,7 +31,6 @@ public class Geschiedenis extends Fragment {
 
     BarChart chart;
     double value;
-    TestModel model;
     ArrayList<BarEntry> barEntries = new ArrayList<>(); //y - data
     double test = 676;
 
@@ -65,7 +54,6 @@ public class Geschiedenis extends Fragment {
 
             barEntries.add(new BarEntry(array[i], i));
             xValues.add(Integer.toString(i * 3) + "uur");
-
 
         }
 

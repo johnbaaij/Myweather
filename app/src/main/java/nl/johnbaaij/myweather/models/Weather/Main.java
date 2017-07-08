@@ -1,29 +1,26 @@
-package nl.johnbaaij.myweather.models;
 
+package nl.johnbaaij.myweather.models.Weather;
+
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
-/**
- * Created by John on 22/06/2017.
- */
 
 public class Main {
 
     @SerializedName("temp")
-    double temp;
-
+    @Expose
+    private double temp;
     @SerializedName("pressure")
-    int pressure;
-
+    @Expose
+    private int pressure;
     @SerializedName("humidity")
-    int humidity;
-
-
+    @Expose
+    private int humidity;
     @SerializedName("temp_min")
-    double temp_min;
-
+    @Expose
+    private double tempMin;
     @SerializedName("temp_max")
-    double temp_max;
-
+    @Expose
+    private double tempMax;
 
     public double getTemp() {
         return temp;
@@ -49,19 +46,20 @@ public class Main {
         this.humidity = humidity;
     }
 
-    public double getTemp_min() {
-        return temp_min;
+    public double getTempMin() {
+        return tempMin;
     }
 
-    public void setTemp_min(double temp_min) {
-        this.temp_min = temp_min;
+    public void setTempMin(double tempMin) {
+        this.tempMin = tempMin;
     }
 
-    public double getTemp_max() {
-        return temp_max;
+    public double getTempMax() {
+        return tempMax;
     }
 
-    public void setTemp_max(double temp_max) {
-        this.temp_max = temp_max;
+    public void setTempMax(double tempMax) {
+        this.tempMax = tempMax;
     }
+
 }

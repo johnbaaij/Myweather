@@ -13,8 +13,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import nl.johnbaaij.myweather.models.Main;
-import nl.johnbaaij.myweather.models.Parser;
+
 import nl.johnbaaij.myweather.models.forecast.Forecast;
 import retrofit2.Call;
 import retrofit2.Callback;

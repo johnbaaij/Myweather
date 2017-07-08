@@ -10,9 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import nl.johnbaaij.myweather.ApiInterface;
+import nl.johnbaaij.myweather.MainActivity;
 import nl.johnbaaij.myweather.R;
-import nl.johnbaaij.myweather.models.Main;
-import nl.johnbaaij.myweather.models.Parser;
+import nl.johnbaaij.myweather.models.Weather.Current;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,7 +34,7 @@ public class Text extends Fragment {
     String locations;
     String subtext;
 
-    private final static String API_KEY = "";
+    String API_KEY = MainActivity.API_KEY;
     public static final String BASE_URL = "http://api.openweathermap.org/data/2.5/";
     final String DEGREE  = "\u00b0";
 
@@ -64,14 +64,14 @@ public class Text extends Fragment {
 
         ApiInterface client = retrofit.create(ApiInterface.class);
 
-        Call<Parser> call = client.getWeather(locations, API_KEY);
+        Call<Current> call = client.getWeather(locations, API_KEY);
 
-        call.enqueue(new Callback<Parser>() {
+        call.enqueue(new Callback<Current>() {
             @Override
-            public void onResponse(Call<Parser> call, Response<Parser> response) {
+            public void onResponse(Call<Current> call, Response<Current> response) {
                 Log.d("Success", "Success") ;
 
-                Main main = response.body().getMain();
+                nl.johnbaaij.myweather.models.Weather.Main main = response.body().getMain();
 
 
 
@@ -80,8 +80,8 @@ public class Text extends Fragment {
 
 
                 double tempValue = Math.round((main.getTemp() -273)  * 100.0) / 100.0;
-                double tempMinValue = Math.round((main.getTemp_min() -273)  * 100.0) / 100.0;
-                double tempMaxValue = Math.round((main.getTemp_max() -273)  * 100.0) / 100.0;
+                double tempMinValue = Math.round((main.getTempMin() -273)  * 100.0) / 100.0;
+                double tempMaxValue = Math.round((main.getTempMax() -273)  * 100.0) / 100.0;
 
 
                 temp.setText(getResources().getString(R.string.temp) + " " +String.valueOf(tempValue) + DEGREE);
@@ -92,7 +92,7 @@ public class Text extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<Parser> call, Throwable t) {
+            public void onFailure(Call<Current> call, Throwable t) {
                 Toast.makeText(getActivity(), "Geen verbinding met de server", Toast.LENGTH_LONG).show();
 
                 //print t to console to get an error message

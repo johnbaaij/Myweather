@@ -16,8 +16,7 @@ import nl.johnbaaij.myweather.ApiInterface;
 import nl.johnbaaij.myweather.MainActivity;
 import nl.johnbaaij.myweather.R;
 import nl.johnbaaij.myweather.SettingsActivity;
-import nl.johnbaaij.myweather.models.Main;
-import nl.johnbaaij.myweather.models.Parser;
+import nl.johnbaaij.myweather.models.Weather.Current;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -46,7 +45,7 @@ public class Weer extends Fragment {
     Retrofit retrofit;
 
     //onze api key. Deze is verborgen om misbruik te voorkomen.
-    private final static String API_KEY = "";
+    private final static String API_KEY = MainActivity.API_KEY;
 
 
 
@@ -87,22 +86,23 @@ public class Weer extends Fragment {
 
         ApiInterface client = retrofit.create(ApiInterface.class);
 
-        Call <Parser> call = client.getWeather(city, API_KEY);
+        Call <Current> call = client.getWeather(city, API_KEY);
 
-        call.enqueue(new Callback<Parser>() {
+        call.enqueue(new Callback<Current>() {
             @Override
-            public void onResponse(Call<Parser> call, Response<Parser> response) {
+            public void onResponse(Call<Current> call, Response<Current> response) {
                 Log.d("Success", "Success") ;
 
-                Main main = response.body().getMain();
+
+               nl.johnbaaij.myweather.models.Weather.Main main = response.body().getMain();
 
                 //de api geeft de waardes terug in kelvin. Daarom moet er -273 gedaan worden om het naar celcius te krijgen.
                 //We ronden het daarna af met 2 cijfers achter de comma.
 
 
                 double temp = Math.round((main.getTemp() - 273)  * 100.0) / 100.0;
-                double tempMin = Math.round((main.getTemp_min() -273)  * 100.0) / 100.0;
-                double tempMax = Math.round((main.getTemp_max() -273)  * 100.0) / 100.0;
+                double tempMin = Math.round((main.getTempMin() -273)  * 100.0) / 100.0;
+                double tempMax = Math.round((main.getTempMax() -273)  * 100.0) / 100.0;
 
 
                 textTemp.setText(getResources().getString(R.string.temp) + " " +String.valueOf(temp) + DEGREE);
@@ -113,7 +113,7 @@ public class Weer extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<Parser> call, Throwable t) {
+            public void onFailure(Call<Current> call, Throwable t) {
                 Toast.makeText(getActivity(), "Geen verbinding met de server", Toast.LENGTH_LONG).show();
 
                 //print t to console to get an error message

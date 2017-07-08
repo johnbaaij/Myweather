@@ -1,6 +1,6 @@
 package nl.johnbaaij.myweather;
 
-import nl.johnbaaij.myweather.models.Parser;
+import nl.johnbaaij.myweather.models.Weather.Current;
 import nl.johnbaaij.myweather.models.forecast.Forecast;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -13,7 +13,7 @@ import retrofit2.http.Query;
 public interface ApiInterface {
 
     @GET("weather")
-    Call<Parser> getWeather(
+    Call<Current> getWeather(
             @Query("q") String city,
             @Query("appid") String appid
             );

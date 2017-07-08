@@ -77,13 +77,15 @@ public class MainActivity extends AppCompatActivity {
             PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putString("city", "Amsterdam").commit();
         }
 
-
         changeToWeerFragment();
-
     }
 
     public void changeToWeerFragment(){
         // Create new fragment and transaction
+
+
+
+
 
         Bundle bundle = new Bundle();
         bundle.putString("city", PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("city", null));
