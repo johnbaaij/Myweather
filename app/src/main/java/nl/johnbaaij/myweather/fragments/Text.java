@@ -1,6 +1,7 @@
 package nl.johnbaaij.myweather.fragments;
 
 import android.app.Fragment;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -64,7 +65,7 @@ public class Text extends Fragment {
 
         ApiInterface client = retrofit.create(ApiInterface.class);
 
-        Call<Current> call = client.getWeather(locations, API_KEY);
+        Call<Current> call = client.getWeather(locations, API_KEY, "NL");
 
         call.enqueue(new Callback<Current>() {
             @Override
@@ -87,6 +88,8 @@ public class Text extends Fragment {
                 temp.setText(getResources().getString(R.string.temp) + " " +String.valueOf(tempValue) + DEGREE);
                 minTemp.setText(getResources().getString(R.string.min_temp) + " " +String.valueOf(tempMinValue) + DEGREE);
                 maxTemp.setText(getResources().getString(R.string.max_temp) + " " + String.valueOf(tempMaxValue) + DEGREE);
+
+
 
 
             }

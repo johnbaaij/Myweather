@@ -81,11 +81,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void changeToWeerFragment(){
-        // Create new fragment and transaction
-
-
-
-
 
         Bundle bundle = new Bundle();
         bundle.putString("city", PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("city", null));
@@ -94,12 +89,10 @@ public class MainActivity extends AppCompatActivity {
         newFragment.setArguments(bundle);
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-        // Replace whatever is in the fragment_container view with this fragment,
-        // and add the transaction to the back stack
+
         transaction.replace(R.id.fragment, newFragment);
         transaction.addToBackStack(null);
 
-        // Commit the transaction
         transaction.commit();
     }
 
@@ -154,8 +147,6 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<Forecast> call, Response<Forecast> response) {
 
 
-
-
                 float[] array = new float[7];
 
                 for(int i=0; i <6; i++){
@@ -165,10 +156,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
                 Bundle bundle = new Bundle();
 
                 bundle.putFloatArray("array", array);
-                bundle.putString("city", city);
+                bundle.putString("city", response.body().getCity().getName());
 
                 Fragment newFragment = new Geschiedenis();
                 newFragment.setArguments(bundle);

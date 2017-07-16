@@ -10,16 +10,14 @@
         android:id="@+id/navigation_locaties"
         android:icon="@drawable/ic_location"
         android:title="@string/title_locaties" />
+    <item
+        android:id="@+id/navigation_Geschiedenis"
+        android:icon="@drawable/ic_trending_up_black_24dp"
+        android:title="@string/title_geschiedenis" />
 
     <item
         android:id="@+id/navigation_Info"
         android:icon="@drawable/ic_info"
         android:title="@string/title_info" />
-
-
-    <item
-        android:id="@+id/navigation_Geschiedenis"
-        android:icon="@drawable/ic_trending_up_black_24dp"
-        android:title="@string/title_geschiedenis" />
 
 </menu>

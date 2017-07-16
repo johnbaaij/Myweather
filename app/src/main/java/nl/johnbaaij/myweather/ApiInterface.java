@@ -15,7 +15,8 @@ public interface ApiInterface {
     @GET("weather")
     Call<Current> getWeather(
             @Query("q") String city,
-            @Query("appid") String appid
+            @Query("appid") String appid,
+            @Query("lang") String lang
             );
 
 

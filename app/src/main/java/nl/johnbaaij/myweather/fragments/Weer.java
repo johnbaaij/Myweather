@@ -86,7 +86,7 @@ public class Weer extends Fragment {
 
         ApiInterface client = retrofit.create(ApiInterface.class);
 
-        Call <Current> call = client.getWeather(city, API_KEY);
+        Call <Current> call = client.getWeather(city, API_KEY, "NL");
 
         call.enqueue(new Callback<Current>() {
             @Override
